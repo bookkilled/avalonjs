@@ -24,9 +24,11 @@
     <div :html="@currPage" class="main"></div>
     <xmp :widget="{is:'ms-footer'}"></xmp>
 <!--js-->
-<script src="js/lib/require.min.js" data-main="main"></script>
+<script src="js/lib/require.min.js" data-main="js/main"></script>
 <script>
-    
+require(['api/api'], function(api){
+    api.getProductDetail();
+});
 </script>
 </body>
 </html>
