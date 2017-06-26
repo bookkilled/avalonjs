@@ -1,7 +1,7 @@
 /**
  * 接口请求列表API
  */
-define(['jquery', 'reqwest'], function ($, reqwest){
+define(['jquery', 'reqwest'], function ($, request){
     // 拼接公共参数
     function encryptData(obj) {
         var parms = {
@@ -44,20 +44,29 @@ define(['jquery', 'reqwest'], function ($, reqwest){
         var parms = {
             productId: '10034600'
         };
-        $.ajax({
+        // $.ajax({
+        //     url: 'https://pa18-wapmall-dmzstg1.pingan.com.cn:53443/chaoshi/finance/open/product/productInfo.do',
+        //     type: 'GET',
+        //     data: encryptData(parms),
+        //     cache: false,
+        //     dataType: 'jsonp',
+        //     timeout: Timeout,
+        //     success: function(req) {
+        //         console.log(req);
+        //     },
+        //     error: function(err) {
+        //         console.log(err);
+        //     },
+        // });
+        return request({
             url: 'https://pa18-wapmall-dmzstg1.pingan.com.cn:53443/chaoshi/finance/open/product/productInfo.do',
-            type: 'GET',
-            data: encryptData(parms),
+            method: 'GET',
             cache: false,
-            dataType: 'jsonp',
+            type: 'jsonp',
             timeout: Timeout,
-            success: function(req) {
-                console.log(req);
-            },
-            error: function(err) {
-                console.log(err);
-            },
-        });
+            contentType: 'application/json;charset=utf-8',
+            data: encryptData(parms)
+        })
     }
 
     return {

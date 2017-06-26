@@ -1,0 +1,110 @@
+// 页面主题 + 通用设置
+@import "variables.less";
+// 样式初始化
+@import "normalize.less";
+// 加载组件
+@import "components.less";
+img {border: 0;}
+a {
+    text-decoration: none; 
+    color: #333;
+    &:hover {
+        text-decoration: none;
+    }
+}
+.main {
+    width: 100%;
+}
+.ms-view {
+    width: 1200px;
+    min-height: 500px;
+    margin: 0 auto;
+    .nav-tit {
+        padding: 12px 0;
+        color: #b3aeae;
+        border: solid 1px #f1f1f1;
+        border-top: 0;
+        padding-left: 10px;
+    }
+}
+// search
+.wrap {
+    width: 1200px;
+    margin: 0 auto;
+}
+.pagename {
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    text-align: center;
+    background: #FFF;
+    margin: 20px auto; 
+}
+.filter {
+    padding: 20px 30px;
+    background: #FFF;
+}
+.filter-class {
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 20px;
+    border-left: 1px solid #e5e5e5;
+}
+.filter-class-rule {
+    float: left;
+    height: 38px;
+    padding: 0 20px;
+    line-height: 38px;
+    cursor: pointer;
+    border-top: 1px solid #e5e5e5;
+    border-right: 1px solid #e5e5e5;
+}
+
+.filter-class-rule:hover, .filter-class-rule.active {
+    background: #f74c4c;
+    color: #fff;
+}
+.filter-item {
+    height: 35px;
+}
+.filter-name {
+    display: block;
+    color: #999;
+    float: left;
+    width: 92px;
+    height: 25px;
+    line-height: 25px;
+    padding: 5px 0;
+    margin: 0;
+    text-align: right;
+}
+.filter-rule {
+    display: block;
+    float: left;
+    height: 25px;
+    line-height: 25px;
+    border-radius: 13px;
+    margin: 5px 3px 0;
+    padding: 0 14px;
+}
+.filter-rule:hover, .filter-rule.active {
+    background: #f74c4c;
+    color: #fff;
+}
+.filter-rule-default {
+    width: 54px;
+    padding: 0px;
+    text-align: center;
+}
+.fresult {
+    margin: 10px auto;
+    background: #FFF;
+}
+.fresult-msg {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+.fresult-msg .red {
+    color: #f74c4c;
+}
+

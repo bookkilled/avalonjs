@@ -1,0 +1,19 @@
+<div class="header-warp" :important="header">
+    <a class="header-logo" href="#!/">
+        <img width="301" height="42" alt="利得金融" src="assets/img/logo1.png" />
+    </a>
+    <ul class="header-menu">
+        <li><a href="javascript:;">首页</a></li>
+        <li><a href="javascript:;">404页面</a></li>
+        <li><a href="javascript:;">个人中心</a></li>
+        <li><a href="javascript:;">我的资产</a></li>
+        <li><a href="javascript:;">账户管理</a></li>
+    </ul>
+    <div class="header-search">
+        <input type="text" name="search-inp" id="search-inp" class="search-inp" />
+        <span class="search-btn">@</span>
+    </div>
+    <div class="header-user">
+        <span :html="@tit"></span><span class="exit" :click="logout">{$ @loginbtn $}</span>
+    </div>
+</div>
