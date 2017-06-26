@@ -1,7 +1,7 @@
 /**
  * 接口请求列表API
  */
-define(['jquery', 'reqwest'], function ($, request){
+define(['jquery', 'reqwest', 'mock'], function ($, request, Mock){
     // 拼接公共参数
     function encryptData(obj) {
         var parms = {
@@ -12,7 +12,10 @@ define(['jquery', 'reqwest'], function ($, request){
     };
 
     var Timeout = 3000;
-
+    Mock.mock(/login\.json/, 'get', {
+        "stateCode": "000000",
+        "stateMsg": "登录成功"
+    })
     var getDate = function () {
         console.log(new Date());
         return 1;
@@ -69,10 +72,33 @@ define(['jquery', 'reqwest'], function ($, request){
         })
     }
 
+    var login = function () {
+        var parms = {
+            productId: '10034600'
+        };
+        return request({
+            url: '../js/mock/login.json',
+            method: 'GET',
+            cache: false,
+            type: 'json',
+            timeout: Timeout,
+            contentType: 'application/json;charset=utf-8',
+            data: encryptData(parms)
+        })
+    }
+    var logout = function () {
+        return {
+            stateCode: '999999',
+            stateMsg: '退出成功'
+        }
+    }
+
     return {
         encryptData: encryptData,
         getDate: getDate,
         getWeather: getWeather,
-        getProductDetail: getProductDetail
+        getProductDetail: getProductDetail,
+        login: login,
+        logout: logout
     };
 });

@@ -7,6 +7,7 @@ require.config({
         'avalon': 'lib/avalon', // v2.2.8
         'leadbase': 'utils/leadbase-encrypts', // 接口入参加密
         'reqwest': 'lib/reqwest.min', // 接口依赖插件
+        'mock': 'lib/mock', // mock数据
         'json': 'lib/json3.min', // support for IE6/7
         'domReady': 'lib/domReady', // require插件 
         'text': 'lib/text', // require插件文本格式转换
