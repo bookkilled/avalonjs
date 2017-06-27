@@ -5,7 +5,7 @@ define([
     'jquery',
     'json'
 ], function($, JSON) {
-    'use strict';
+    // 'use strict';
     return {
         login: {
             responseCode: "000000",

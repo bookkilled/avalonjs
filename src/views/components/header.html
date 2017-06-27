@@ -10,8 +10,8 @@
         <li><a href="javascript:;">账户管理</a></li>
     </ul>
     <div class="header-search">
-        <input type="text" name="search-inp" id="search-inp" class="search-inp" />
-        <span class="search-btn">@</span>
+        <input type="text" name="search-inp" id="search-inp" class="search-inp" :duplex="@searchtxt" />
+        <span class="search-btn" >@</span>
     </div>
     <div class="header-user">
         <span :html="@tit"></span><span class="exit" :click="login">{$ @loginbtn $}</span>

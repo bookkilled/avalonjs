@@ -15,6 +15,41 @@ requirejs: RequireJS works in IE 6+, Firefox 2+, Safari 3.2+, Chrome 3+, and Ope
 
 
 ## 包含内容：
-1、ajax接口请求兼容 IE6+
-2、Mock数据模拟拦截替换
+1、ajax接口请求（接口定义都在api/api.js内）兼容 IE7+
+```javascript
+// 举例
+// mock拦截替换返回数据对象 Mdata.login
+Mock.mock(/login\.json/, 'get', Mdata.login)
+var login = function () {
+    var parms = {
+        productId: '10034600'
+    };
+    return $.ajax({
+        url: 'login.json',
+        type: 'GET',
+        data: encryptData(parms),
+        cache: false,
+        dataType: 'json',
+        timeout: Timeout,
+        contentType: 'application/json;charset=utf-8'
+    });
+};
+return {
+    login: login
+}
+// 调用
+api.login().then(function(res){
+    console.log('success');
+},function(err){
+    console.log('error');
+});
+```
+2、Mock数据模拟拦截替换，文档[传送门]（http://mockjs.com/）
+3、r.js打包发布
+
+
+
+## 问题待解决：
+1、登录态多页面切换 如何解决？
+2、组件化多页面情况是否需要？
 
