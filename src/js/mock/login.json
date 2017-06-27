@@ -1,4 +1,5 @@
 {
-    "stateCode": "000000",
-    "stateMsg": "登录成功"
+    "responseCode": "000001",
+    "stateMsg": "登录成功",
+    "list": {}
 }

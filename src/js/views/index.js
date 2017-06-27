@@ -51,12 +51,12 @@ require(mapList, function(api, avalon, headerHtml, footerHtml, header, footer){
     });
 
 
-    api.getProductDetail().then(function(res){
-        console.log(res);
-        // avalon.vmodels.header.tit = 'svenzhou';
-    }, function(err){
-        console.log(err);
-    });
+    // api.getProductDetail().then(function(res){
+    //     console.log(res);
+    //     // avalon.vmodels.header.tit = 'svenzhou';
+    // }, function(err){
+    //     console.log(err);
+    // });
 
 
 

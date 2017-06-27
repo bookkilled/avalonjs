@@ -1,7 +1,10 @@
 /**
  * 接口请求列表API
  */
-define(['jquery', 'reqwest', 'mock'], function ($, request, Mock){
+define(['jquery', 'json', 'mock', 'mdata'], function ($, JSON, Mock, Mdata){
+    
+    var Domain = location.protocol + '//' + location.host;
+
     // 拼接公共参数
     function encryptData(obj) {
         var parms = {
@@ -12,10 +15,7 @@ define(['jquery', 'reqwest', 'mock'], function ($, request, Mock){
     };
 
     var Timeout = 3000;
-    Mock.mock(/login\.json/, 'get', {
-        "stateCode": "000000",
-        "stateMsg": "登录成功"
-    })
+    Mock.mock(/login\.json/, 'get', Mdata.login)
     var getDate = function () {
         console.log(new Date());
         return 1;
@@ -27,19 +27,13 @@ define(['jquery', 'reqwest', 'mock'], function ($, request, Mock){
             password: 'DJOYnieT8234jlsK',
             day: 0
         };
-        $.ajax({
+        return $.ajax({
             url: 'http://php.weather.sina.com.cn/xml.php',
             type: 'GET',
             data: encryptData(parms),
             cache: false,
             dataType: 'jsonp',
-            timeout: Timeout,
-            success: function(req) {
-                console.log(req);
-            },
-            error: function(err) {
-                console.log(err);
-            },
+            timeout: Timeout
         });
     }
 
@@ -47,44 +41,29 @@ define(['jquery', 'reqwest', 'mock'], function ($, request, Mock){
         var parms = {
             productId: '10034600'
         };
-        // $.ajax({
-        //     url: 'https://pa18-wapmall-dmzstg1.pingan.com.cn:53443/chaoshi/finance/open/product/productInfo.do',
-        //     type: 'GET',
-        //     data: encryptData(parms),
-        //     cache: false,
-        //     dataType: 'jsonp',
-        //     timeout: Timeout,
-        //     success: function(req) {
-        //         console.log(req);
-        //     },
-        //     error: function(err) {
-        //         console.log(err);
-        //     },
-        // });
-        return request({
+        return $.ajax({
             url: 'https://pa18-wapmall-dmzstg1.pingan.com.cn:53443/chaoshi/finance/open/product/productInfo.do',
-            method: 'GET',
+            type: 'GET',
+            data: encryptData(parms),
             cache: false,
-            type: 'jsonp',
-            timeout: Timeout,
-            contentType: 'application/json;charset=utf-8',
-            data: encryptData(parms)
-        })
+            dataType: 'jsonp',
+            timeout: Timeout
+        });
     }
 
     var login = function () {
         var parms = {
             productId: '10034600'
         };
-        return request({
-            url: '../js/mock/login.json',
-            method: 'GET',
+        return $.ajax({
+            url: 'login.json',
+            type: 'GET',
+            data: encryptData(parms),
             cache: false,
-            type: 'json',
+            dataType: 'json',
             timeout: Timeout,
-            contentType: 'application/json;charset=utf-8',
-            data: encryptData(parms)
-        })
+            contentType: 'application/json;charset=utf-8'
+        });
     }
     var logout = function () {
         return {
